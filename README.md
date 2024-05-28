@@ -1,4 +1,4 @@
-# terraform-provider-aws
+# terraform-aws
 
 lintnet modules for Terraform AWS Provider
 
