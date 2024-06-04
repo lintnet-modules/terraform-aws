@@ -1,8 +1,8 @@
 # terraform-aws
 
-lintnet modules for Terraform AWS Provider
+A lintnet module for Terraform AWS Provider
 
-## Modules
+## Rules
 
 - [hcl/forbid_provider_endpoints](hcl/forbid_provider_endpoints): Forbid AWS Provider's `endpoints` attribute
 
