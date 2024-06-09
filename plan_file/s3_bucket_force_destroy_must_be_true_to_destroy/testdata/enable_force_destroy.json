@@ -1,0 +1,26 @@
+{
+    "format_version": "1.2",
+    "terraform_version": "1.8.4",
+    "resource_changes": [
+        {
+            "address": "aws_s3_bucket.example",
+            "mode": "managed",
+            "type": "aws_s3_bucket",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "delete"
+                ],
+                "before": {
+                    "bucket": "my-tf-test-bucket",
+                    "force_destroy": true
+                },
+                "after": null,
+                "after_unknown": {},
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        }
+    ]
+}
