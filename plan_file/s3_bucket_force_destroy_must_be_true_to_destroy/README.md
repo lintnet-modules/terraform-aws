@@ -16,6 +16,18 @@ resource "aws_s3_bucket" "example" {
 To destroy a S3 bucket having some objects, `force_destroy` is required.
 Otherwise, `terraform apply` fails.
 
+## How to fix
+
+Before destroying a S3 bucket, you should set `force_destroy` to `true` and run `terraform apply`.
+Or you can also edit Terraform State on your own risk and change `force_destroy` to `true`.
+
+```tf
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+  force_destroy = true
+}
+```
+
 ## Usage
 
 ```jsonnet
@@ -23,7 +35,7 @@ function(param) {
   targets: [
     {
       data_files: [
-        '**/*.tf',
+        '**/tfplan.json',
       ],
       modules: [
         'github_archive/github.com/lintnet-modules/terraform-aws/plan_file/s3_bucket_force_destroy_must_be_true_to_destroy/main.jsonnet@4f81d84e6495489c68e4f9e7c7a657b30a2ce7fa:v0.2.0',
@@ -35,17 +47,4 @@ function(param) {
 
 ## Config
 
-- `excludes`: A list of excluded S3 bucket resource address, not bucket name
-
-```jsonnet
-modules: [
-  {
-    path: 'github_archive/github.com/lintnet-modules/terraform-aws/plan_file/s3_bucket_force_destroy_must_be_true_to_destroy/main.jsonnet@4f81d84e6495489c68e4f9e7c7a657b30a2ce7fa:v0.2.0',
-    config: {
-      excludes: [
-        'aws_s3_bucket.example',
-      ],
-    },
-  },
-],
-```
+Nothing.
